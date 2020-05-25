@@ -1,16 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable
+            name="dog"
+            type="com.example.dogsapplication.model.DogBreed"/>
+        <variable
+            name="listener"
+            type="com.example.dogsapplication.view.DogClickListener" />
+    </data>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="120dp"
+        android:onClick="@{listener::onDogClicked}"
         android:orientation="horizontal">
+
+        <!--to store the id od dog variable inside the element to have access via DatBinding-->
+        <TextView
+            android:id="@+id/dogId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:text="@{String.valueOf(dog.uuid)}"/>
+
 
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="2"
+            android:imageUrl="@{dog.imageUrl}"
             android:padding="4dp" />
 
         <LinearLayout
@@ -26,14 +45,14 @@
                 style="@style/Title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/dogname" />
+                android:text="@{dog.dogBreed}" />
 
             <TextView
                 android:id="@+id/lifespan"
                 style="@style/Text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/lifespan" />
+                android:text="@{dog.lifeSpan}" />
         </LinearLayout>
     </LinearLayout>
 </layout>

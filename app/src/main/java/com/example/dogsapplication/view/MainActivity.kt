@@ -1,4 +1,4 @@
-package com.example.dogsapplication.View
+package com.example.dogsapplication.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

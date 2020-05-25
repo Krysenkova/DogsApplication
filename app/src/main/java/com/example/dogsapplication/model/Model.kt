@@ -1,4 +1,4 @@
-package com.example.dogsapplication.Model
+package com.example.dogsapplication.model
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 
 @Entity       //entity that can be put in a database
-data class DogBreed(
+public data class DogBreed(
     @ColumnInfo(name = "breed_id")
     @SerializedName("id")
     val breedId: String?,
@@ -38,6 +38,8 @@ data class DogBreed(
     @PrimaryKey(autoGenerate = true)
     var uuid: Int = 0
 }
+
+data class DogPalette(var color: Int)
 
 
 

@@ -1,10 +1,9 @@
-package com.example.dogsapplication.ViewModel
+package com.example.dogsapplication.viewModel
 
 import android.app.Application
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import com.example.dogsapplication.Model.DogBreed
-import com.example.dogsapplication.Model.DogDatabase
+import com.example.dogsapplication.model.DogBreed
+import com.example.dogsapplication.model.DogDatabase
 import kotlinx.coroutines.launch
 
 class DetailViewModel(application: Application): BaseViewModel(application) {

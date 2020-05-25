@@ -1,13 +1,12 @@
-package com.example.dogsapplication.ViewModel
+package com.example.dogsapplication.viewModel
 
 import android.app.Application
 import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import com.example.dogsapplication.Model.DogApiService
-import com.example.dogsapplication.Model.DogBreed
-import com.example.dogsapplication.Model.DogDatabase
-import com.example.dogsapplication.Util.SharedPreferencesHelper
+import com.example.dogsapplication.model.DogApiService
+import com.example.dogsapplication.model.DogBreed
+import com.example.dogsapplication.model.DogDatabase
+import com.example.dogsapplication.util.SharedPreferencesHelper
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.observers.DisposableSingleObserver

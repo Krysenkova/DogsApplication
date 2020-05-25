@@ -1,4 +1,4 @@
-package com.example.dogsapplication.Model
+package com.example.dogsapplication.model
 
 import io.reactivex.Single
 import retrofit2.Retrofit

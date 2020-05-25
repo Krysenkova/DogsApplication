@@ -1,4 +1,4 @@
-package com.example.dogsapplication.Model
+package com.example.dogsapplication.model
 
 import androidx.room.Dao
 import androidx.room.Insert

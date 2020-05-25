@@ -1,4 +1,4 @@
-package com.example.dogsapplication.Util
+package com.example.dogsapplication.util
 
 import android.content.Context
 import android.content.SharedPreferences

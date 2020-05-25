@@ -1,4 +1,4 @@
-package com.example.dogsapplication.View
+package com.example.dogsapplication.view
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,11 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 
 import com.example.dogsapplication.R
-import com.example.dogsapplication.ViewModel.ListViewModel
+import com.example.dogsapplication.viewModel.ListViewModel
 import kotlinx.android.synthetic.main.fragment_list.*
 
 class ListFragment : Fragment() {

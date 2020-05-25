@@ -1,4 +1,4 @@
-package com.example.dogsapplication.Model
+package com.example.dogsapplication.model
 
 import android.content.Context
 import androidx.room.Database
