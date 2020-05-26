@@ -6,12 +6,14 @@ import androidx.lifecycle.MutableLiveData
 import com.example.dogsapplication.model.DogApiService
 import com.example.dogsapplication.model.DogBreed
 import com.example.dogsapplication.model.DogDatabase
+import com.example.dogsapplication.util.NotificationsHelper
 import com.example.dogsapplication.util.SharedPreferencesHelper
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.observers.DisposableSingleObserver
 import io.reactivex.schedulers.Schedulers
 import kotlinx.coroutines.launch
+import java.lang.NumberFormatException
 
 class ListViewModel(application: Application) : BaseViewModel(application) {
 
@@ -27,11 +29,23 @@ class ListViewModel(application: Application) : BaseViewModel(application) {
     val loading = MutableLiveData<Boolean>()
 
     fun refresh() {
+        checkCacheDuration()
         val updateTime = prefHelper.getUpdateTime()
         if(updateTime != null && updateTime != 0L && System.nanoTime()-updateTime < refreshTime){
             fetchFromDatabase()
         }else {
             fetchFromRemote()
+        }
+    }
+
+    private fun checkCacheDuration() {
+        val cachePreference: String? = prefHelper.getCacheDuration()
+
+        try {
+            val cachePreferenceInt : Int = cachePreference?.toInt() ?: 5*60
+            refreshTime = cachePreferenceInt.times(1000 * 1000 * 1000L)
+        } catch (e: NumberFormatException){
+            e.printStackTrace()
         }
     }
 
@@ -45,6 +59,7 @@ class ListViewModel(application: Application) : BaseViewModel(application) {
             val dogs = DogDatabase(getApplication()).dogDao().getAllDogs()
             dogsRetrieved(dogs)
             Toast.makeText(getApplication(), "Dogs retrieved from database", Toast.LENGTH_SHORT).show()
+            NotificationsHelper(getApplication()).createNotification()
         }
     }
 
