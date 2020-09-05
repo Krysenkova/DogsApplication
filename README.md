@@ -7,7 +7,7 @@ Navigation component
 Retrofit
 RxJava
 
-#Functionality
+# Functionality
 List of dog breeds.
 Details view for each breed with additional information.
 Send the info you like as a message to a phone number or in a messenger/share info on social networks.
